@@ -4,12 +4,13 @@ import * as Inert from 'inert';
 import * as Vision from 'vision';
 
 import Routes from './routes';
+import config from './util/config';
 import version from './util/version';
 
 const createServer = async () => {
   const server = await new Hapi.Server({
-    host: 'localhost',
-    port: 3000,
+    host: config.HOST,
+    port: config.PORT,
     routes: {
       cors: true,
     },
