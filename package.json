@@ -2,16 +2,30 @@
   "name": "hapi-template",
   "version": "1.0.0",
   "description": "template for Hapi 17 with hapi-swagger",
+  "license": "MIT",
   "main": "index.ts",
   "scripts": {
     "start": "node dist/index.js",
     "build": "npm run build-ts",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "source .env.test && jest",
     "tslint": "tslint -c tslint.json -p tsconfig.json",
     "build-ts": "tsc",
     "watch-ts": "tsc -w"
   },
-  "license": "MIT",
+  "jest": {
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ]
+  },
   "dependencies": {
     "boom": "^7.1.1",
     "hapi": "^17.2.0",
@@ -21,6 +35,8 @@
     "vision": "^5.3.1"
   },
   "devDependencies": {
+    "@types/jest": "^22.1.2",
+    "ts-jest": "^22.0.3",
     "tslint": "^5.9.1",
     "typescript": "^2.7.1"
   }

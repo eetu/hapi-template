@@ -26,15 +26,6 @@ const createServer = async () => {
     },
   ]);
 
-  try {
-    await server.start();
-    // tslint:disable-next-line
-    console.log('Server running at:', server.info.uri);
-  } catch (err) {
-    // tslint:disable-next-line
-    console.log(err);
-  }
-
   server.route(Routes);
   return server;
 };
