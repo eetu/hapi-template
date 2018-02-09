@@ -1,0 +1,27 @@
+{
+  "name": "hapi-template",
+  "version": "1.0.0",
+  "description": "template for Hapi 17 with hapi-swagger",
+  "main": "index.ts",
+  "scripts": {
+    "start": "node dist/index.js",
+    "build": "npm run build-ts",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "tslint": "tslint -c tslint.json -p tsconfig.json",
+    "build-ts": "tsc",
+    "watch-ts": "tsc -w"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "boom": "^7.1.1",
+    "hapi": "^17.2.0",
+    "hapi-swagger": "^9.0.2",
+    "inert": "^5.1.0",
+    "joi": "^13.1.2",
+    "vision": "^5.3.1"
+  },
+  "devDependencies": {
+    "tslint": "^5.9.1",
+    "typescript": "^2.7.1"
+  }
+}
