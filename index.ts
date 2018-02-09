@@ -1,15 +1,15 @@
 import {createServer} from './src/server';
+import logger from './src/util/logger';
 
 async function start() {
   const server = await createServer();
 
   try {
     await server.start();
-    // tslint:disable-next-line
-    console.log('Server running at:', server.info.uri);
+    logger.info(`Server running at ${server.info.uri}`);
   } catch (err) {
     // tslint:disable-next-line
-    console.log(err);
+    logger.error(err);
   }
 }
 

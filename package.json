@@ -32,10 +32,13 @@
     "hapi-swagger": "^9.0.2",
     "inert": "^5.1.0",
     "joi": "^13.1.2",
-    "vision": "^5.3.1"
+    "vision": "^5.3.1",
+    "winston": "^3.0.0-rc1"
   },
   "devDependencies": {
     "@types/jest": "^22.1.2",
+    "@types/joi": "^13.0.5",
+    "@types/node": "^4.0.36",
     "ts-jest": "^22.0.3",
     "tslint": "^5.9.1",
     "typescript": "^2.7.1"
