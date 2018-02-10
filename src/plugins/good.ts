@@ -16,7 +16,7 @@ const handlers: any = {
 
   response: (event: any) => ({
     msg: `${event.instance}: ${event.method.toUpperCase()} ${event.path} ${JSON.stringify(event.query)} ${event.statusCode} (${event.responseTime}ms)`,
-    level: 'info',
+    level: 'debug',
   }),
 
   ops: (event: any) => {
@@ -32,7 +32,7 @@ const handlers: any = {
 
   request: (event: any) => ({
     msg: `[${event.tags}] ${event.method.toUpperCase()} ${event.path} ${event.data}`,
-    level: 'info',
+    level: 'debug',
   }),
 };
 
