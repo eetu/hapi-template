@@ -6,6 +6,7 @@
   "main": "index.ts",
   "scripts": {
     "start": "node dist/index.js",
+    "start-dev": "nodemon -L --watch dist/src dist/index.js",
     "build": "npm run build-ts",
     "test": "bash -c 'source .env.test && jest'",
     "tslint": "tslint -c tslint.json -p tsconfig.json",
@@ -42,6 +43,7 @@
     "@types/joi": "^13.0.5",
     "@types/node": "^4.0.36",
     "jest": "^22.2.2",
+    "nodemon": "^1.14.12",
     "ts-jest": "^22.0.3",
     "tslint": "^5.9.1",
     "typescript": "^2.7.1"
