@@ -2,6 +2,6 @@
   "name": "Hapi Template",
   "description": "Node.js template app with hapi and hapi-swagger integrated",
   "repository": "https://github.com/eetu/hapi-template",
-  "logo": "https://node-js-sample.herokuapp.com/node.png",
+  "logo": "https://raw.githubusercontent.com/hapijs/hapi/master/images/hapi.png",
   "keywords": ["node", "hapi", "swagger"]
 }
