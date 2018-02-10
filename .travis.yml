@@ -13,7 +13,7 @@
   install:
   before_script:
   script:
-    - sudo -E docker-compose -f run test
+    - sudo -E docker-compose -f docker-compose.yml run ci
   after_script:
     - docker ps -a
     - docker-compose logs
