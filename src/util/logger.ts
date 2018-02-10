@@ -5,13 +5,15 @@ import config from './config';
 let logger: any;
 
 if (!logger) {
-  const level = config.LOGGER_LEVEL || 'info';
+  const level = config.LOGGER_LEVEL;
   const isProd = config.NODE_ENV === 'production';
 
   logger = createLogger({
     level,
-    colorize: !isProd,
-    format: isProd ? format.json() : format.simple(),
+    format: format.combine(
+      format.colorize({ all: !isProd }),
+      format.simple(),
+    ),
     transports: [
       new transports.Console(),
     ],
