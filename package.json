@@ -11,7 +11,7 @@
     "tslint": "tslint -c tslint.json -p tsconfig.json",
     "build-ts": "tsc",
     "watch-ts": "tsc -w",
-    "heroku-postbuild": "tools/build.sh"
+    "heroku-postbuild": "./tools/build.sh"
   },
   "jest": {
     "transform": {
