@@ -1,0 +1,22 @@
+---
+  sudo: required
+  services:
+    - docker
+  language: node_js
+  node_js:
+    - "8"
+  env:
+    - NODE_VERSION=8
+  before_install:
+    - docker-compose -v
+    - docker -v
+  install:
+  before_script:
+  script:
+    - sudo -E docker-compose -f run test
+  after_script:
+    - docker ps -a
+    - docker-compose logs
+  notifications:
+    # email:
+    #   - add email address here where notifications are sent of build failures

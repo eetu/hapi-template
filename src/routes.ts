@@ -5,7 +5,6 @@ const routes = {
   path: '/',
   options: {
     tags: ['api'],
-    description: 'perkele',
     handler: (request: any) => {
       return 'Hello world';
     },
