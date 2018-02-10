@@ -13,4 +13,5 @@ npm run build
 
 npm run tslint
 
-npm test
+# run jest with .env.test.sample variables
+./node_modules/.bin/jest
