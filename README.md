@@ -8,3 +8,15 @@
 - Hapi v17
 - HapiSwagger
 - Jest (for tests)
+
+## Usage
+
+Development mode
+1. `npm install`
+1. `npm watch-ts`
+1. `npm start-dev` (on another console)
+
+Production mode
+1. `npm install`
+1. `npm build`
+1. `npm start`
