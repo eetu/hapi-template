@@ -5,9 +5,7 @@
 # exit bash if any command fails
 set -e
 
-export NPM_CONFIG_PRODUCTION=false
-
-npm install --development --no-progress
+npm install --only=dev
 
 npm run build
 
