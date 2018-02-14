@@ -14,7 +14,9 @@ const createServer = async () => {
     host: config.HOST,
     port: config.PORT,
     routes: {
-      cors: true,
+      cors: {
+        origin: ['*'],
+      },
     },
   });
 
