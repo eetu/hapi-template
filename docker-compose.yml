@@ -9,20 +9,19 @@ services:
     working_dir: /app/user
     volumes:
         - '.:/app/user'
-#     links:
-#       - postgres
+    links:
+      - postgres
 
-# Uncommment if you need to have database in the service
-#   postgres:
-#     image: postgres:10.1
-#     environment:
-#       - POSTGRES_USER=postgres
-#       - POSTGRES_PASSWORD=postgres
-#       - POSTGRES_DB=test
-#     ports:
-#       - '127.0.0.1:5432:5432'
-#     volumes:
-#       - pgdata:/var/lib/postgresql/data
+  postgres:
+    image: postgres:10.2
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=test
+    ports:
+      - '127.0.0.1:5432:5432'
+    volumes:
+      - pgdata:/var/lib/postgresql/data
 
-# volumes:
-#   pgdata: {}
+volumes:
+  pgdata: {}

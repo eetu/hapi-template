@@ -1,7 +1,7 @@
 function getDot(id: number) {
   return {
     id,
-    dots: '...',
+    dots: '.',
   };
 }
 
