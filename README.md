@@ -20,3 +20,21 @@ Production mode
 1. `npm install`
 1. `npm build`
 1. `npm start`
+
+## Directories
+
+### /db
+
+### /db/migrations
+
+### /src
+
+### /src/routes
+
+### /src/controllers
+
+### /src/services
+
+### /src/types
+
+### /src/util

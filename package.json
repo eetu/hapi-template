@@ -9,6 +9,7 @@
     "start-dev": "nodemon -L --watch dist/src dist/index.js",
     "build": "npm run build-ts",
     "test": "env-cmd .env.test jest",
+    "watch-test": "env-cmd .env.test jest --watch",
     "tslint": "tslint -c tslint.json -p tsconfig.json",
     "build-ts": "tsc",
     "watch-ts": "tsc -w",
@@ -39,7 +40,7 @@
     "winston": "^3.0.0-rc1"
   },
   "devDependencies": {
-    "@types/hapi": "^17.0.0",
+    "@types/boom": "^7.1.1",
     "@types/jest": "^22.1.2",
     "@types/joi": "^13.0.5",
     "@types/node": "^9.4.6",
