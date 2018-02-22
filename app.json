@@ -3,5 +3,13 @@
   "description": "Node.js template app with hapi and hapi-swagger integrated",
   "repository": "https://github.com/eetu/hapi-template",
   "logo": "https://raw.githubusercontent.com/hapijs/hapi/master/images/hapi.png",
-  "keywords": ["node", "hapi", "swagger"]
+  "keywords": ["node", "hapi", "swagger", "postgresql"],
+  "addons": [
+    {
+      "plan": "heroku-postgresql",
+      "options": {
+        "version": "10.2"
+      }
+    }
+  ]
 }
