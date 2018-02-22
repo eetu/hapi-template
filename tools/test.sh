@@ -5,8 +5,13 @@
 # exit bash if any command fails
 set -e
 
+source .env.test
+# override DATABASE_URL inside docker container
+export DATABASE_URL=postgres://postgres:postgres@database:5432/test
+
 npm install --development --no-progress
 
 npm run tslint
 
-npm test
+# run jest with .env.test.sample variables
+./node_modules/.bin/jest

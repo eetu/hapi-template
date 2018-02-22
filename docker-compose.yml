@@ -10,9 +10,9 @@ services:
     volumes:
         - '.:/app/user'
     links:
-      - postgres
+      - db:database
 
-  postgres:
+  db:
     image: postgres:10.2
     environment:
       - POSTGRES_USER=postgres
