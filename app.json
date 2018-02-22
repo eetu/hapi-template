@@ -4,6 +4,11 @@
   "repository": "https://github.com/eetu/hapi-template",
   "logo": "https://raw.githubusercontent.com/hapijs/hapi/master/images/hapi.png",
   "keywords": ["node", "hapi", "swagger", "postgresql"],
+  "env": {
+    "NODE_ENV": "production",
+    "LOGGER_LEVEL": "info",
+    "CORS_ENABLED": "true"
+  },
   "addons": [
     {
       "plan": "heroku-postgresql",
