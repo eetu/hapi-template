@@ -1,15 +1,36 @@
-function getDot(id: number) {
+import { isNil } from 'lodash';
+
+import db from '../util/db';
+
+function mapRowToJson(row: DotRow): Dot {
+  if (isNil(row)) {
+    return row;
+  }
+
   return {
-    id,
-    dots: '.',
+    id: Number(row.id),
+    dots: row.dots,
   };
 }
 
-function insertDot(dot: Dot) {
-  return {
-    ...dot,
-    id: 1,
-  };
+async function getDot(id: number) {
+  const result = await db.query(`
+    SELECT *
+    FROM dots
+    WHERE id=$1
+  `, [id]);
+
+  return mapRowToJson(result.rows[0]);
+}
+
+async function insertDot(dot: Dot) {
+  const result = await db.query(`
+    INSERT INTO dots (dots)
+    VALUES ($1)
+    RETURNING *
+  `, [dot.dots]);
+
+  return mapRowToJson(result.rows[0]);
 }
 
 export {

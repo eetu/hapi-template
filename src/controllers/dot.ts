@@ -1,15 +1,23 @@
 import * as Boom from 'boom';
+import { isUndefined } from 'lodash';
 
 import * as dotService from '../services/dot';
 
-function insertDot(request: any, h: any): Dot {
+async function insertDot(request: any, h: any): Promise<Dot> {
   const dot = request.payload;
-  return h.response(dotService.insertDot(dot)).code(201);
+  const inserted = await dotService.insertDot(dot);
+  return h.response(inserted).code(201);
 }
 
-function getDot(request: any, h: any): Dot {
+async function getDot(request: any, h: any): Promise<Dot> {
   const id = Number(request.params.id);
-  return dotService.getDot(id);
+  const dot = await dotService.getDot(id);
+
+  if (isUndefined(dot)) {
+    throw Boom.notFound();
+  }
+
+  return dot;
 }
 
 export {

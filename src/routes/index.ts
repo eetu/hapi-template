@@ -22,7 +22,7 @@ const routes = [
   },
   {
     method: 'POST',
-    path: '/dot',
+    path: '/dots',
     options: {
       tags: ['api'],
       validate: {
@@ -38,7 +38,7 @@ const routes = [
   },
   {
     method: 'GET',
-    path: '/dot/{id}',
+    path: '/dots/{id}',
     options: {
       tags: ['api'],
       validate: {
