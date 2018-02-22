@@ -6,9 +6,11 @@
   "main": "index.ts",
   "scripts": {
     "start": "node dist/index.js",
-    "start-dev": "nodemon -L --watch dist/src dist/index.js",
+    "start-dev": "env-cmd .env nodemon -L --watch dist/src dist/index.js",
+    "migrate-db": "env-cmd .env knex migrate:latest",
     "build": "npm run build-ts",
     "test": "env-cmd .env.test jest",
+    "watch-test": "env-cmd .env.test jest --watch",
     "tslint": "tslint -c tslint.json -p tsconfig.json",
     "build-ts": "tsc",
     "watch-ts": "tsc -w",
@@ -18,7 +20,7 @@
     "transform": {
       "^.+\\.tsx?$": "ts-jest"
     },
-    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
+    "testRegex": "(/__tests__/.*(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
     "moduleFileExtensions": [
       "ts",
       "tsx",
@@ -35,18 +37,23 @@
     "hapi-swagger": "^9.0.2",
     "inert": "^5.1.0",
     "joi": "^13.1.2",
+    "knex": "^0.14.4",
+    "pg": "^7.4.1",
     "vision": "^5.3.1",
     "winston": "^3.0.0-rc1"
   },
   "devDependencies": {
-    "@types/hapi": "^17.0.0",
+    "@types/boom": "^7.1.1",
     "@types/jest": "^22.1.2",
     "@types/joi": "^13.0.5",
+    "@types/lodash": "^4.14.104",
     "@types/node": "^9.4.6",
+    "@types/pg": "^7.4.4",
     "env-cmd": "^7.0.0",
     "jest": "^22.2.2",
     "nodemon": "^1.14.12",
     "ts-jest": "^22.0.3",
+    "ts-node": "^5.0.0",
     "tslint": "^5.9.1",
     "typescript": "^2.7.1"
   }

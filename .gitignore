@@ -1,7 +1,4 @@
 .env
-.env.*
-!.env.sample
-!.env.test.sample
 
 node_modules/
 dist/
