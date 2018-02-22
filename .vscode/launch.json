@@ -9,6 +9,7 @@
       "request": "launch",
       "name": "Tests",
       "program": "${workspaceRoot}/node_modules/jest/bin/jest.js",
+      "envFile": "${workspaceFolder}/.env.test",
       "cwd": "${workspaceRoot}"
     },
     {
@@ -16,6 +17,7 @@
       "request": "launch",
       "name": "Launch Program",
       "program": "${workspaceFolder}/index.ts",
+      "envFile": "${workspaceFolder}/.env",
       "outFiles": [
         "${workspaceFolder}/**/*.js"
       ]
