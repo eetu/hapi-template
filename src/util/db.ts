@@ -7,7 +7,7 @@ const opts = {
   connectionString: config.DATABASE_URL,
 };
 
-logger.info('database connection', opts);
+logger.debug('database connection', opts);
 
 const client = new Pool(opts);
 
