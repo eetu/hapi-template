@@ -13,5 +13,5 @@ npm install --development --no-progress
 
 npm run tslint
 
-# run jest with .env.test.sample variables
+# run jest with modified DATABASE_URL
 ./node_modules/.bin/jest
