@@ -12,7 +12,7 @@
 ## Usage
 
 Initialization
-1. `docker-compose up -d postgres`
+1. `docker-compose up -d db`
 
 Development mode
 1. `npm install`
