@@ -16,7 +16,7 @@ const config = {
   HOST: process.env.HOST || '0.0.0.0',
   PORT: Number(process.env.PORT) || 3000,
   LOGGER_LEVEL: process.env.LOGGER_LEVEL || 'info',
-  CORS_ENABLED: process.env.CORS_ENABLED,
+  CORS_ENABLED: process.env.CORS_ENABLED === 'true',
   DATABASE_URL: process.env.DATABASE_URL,
 };
 
