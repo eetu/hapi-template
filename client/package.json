@@ -1,0 +1,22 @@
+{
+  "name": "hapi-template-client",
+  "version": "1.0.0",
+  "description": "Client library for Hapi-template service",
+  "main": "src/client.js",
+  "scripts": {
+    "build-ts": "tsc",
+    "watch-ts": "tsc -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eetu/hapi-template-client.git"
+  },
+  "author": "Eetu Sutinen",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "typescript": "^2.7.2"
+  },
+  "devDependencies": {
+  }
+}
