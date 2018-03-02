@@ -1,6 +1,8 @@
+import config from './src/util/config';
+
 export = {
   client: 'pg',
-  connection: process.env.DATABASE_URL,
+  connection: config.DATABASE_URL,
   migrations: {
     directory: 'db/migrations',
     tableName: 'migrations',
