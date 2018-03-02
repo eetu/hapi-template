@@ -9,6 +9,8 @@ beforeEach(async () => {
 afterAll(async () => {
   // close database connection(s) to allow test to end gracefully
   await dbUtils.close();
+  // remove generated test database
+  await dbUtils.removeTestDatabae();
 });
 
 test('POST', async () => {
