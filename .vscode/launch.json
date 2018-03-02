@@ -10,7 +10,7 @@
       "name": "Tests",
       "sourceMaps": true,
       "program": "${workspaceRoot}/node_modules/jest/bin/jest.js",
-      "runtimeArgs": [
+      "args": [
         "--runInBand" // helps with debugging
       ],
       "envFile": "${workspaceFolder}/.env.test",
