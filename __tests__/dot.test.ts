@@ -1,6 +1,6 @@
 import { createServer } from '../src/server';
 import { insertDot } from '../src/services/dot';
-import * as dbUtils from './util/db';
+import dbUtils from './util/db';
 
 beforeEach(async () => {
   await dbUtils.reset();
@@ -8,7 +8,9 @@ beforeEach(async () => {
 
 afterAll(async () => {
   // close database connection(s) to allow test to end gracefully
-  dbUtils.close();
+  await dbUtils.close();
+  // remove generated test database
+  await dbUtils.removeTestDatabae();
 });
 
 test('POST', async () => {

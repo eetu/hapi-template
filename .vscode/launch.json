@@ -8,7 +8,11 @@
       "type": "node",
       "request": "launch",
       "name": "Tests",
+      "sourceMaps": true,
       "program": "${workspaceRoot}/node_modules/jest/bin/jest.js",
+      "args": [
+        "--runInBand" // helps with debugging
+      ],
       "envFile": "${workspaceFolder}/.env.test",
       "cwd": "${workspaceRoot}"
     },

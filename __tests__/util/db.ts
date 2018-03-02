@@ -1,30 +1,78 @@
 import * as Knex from 'knex';
+import * as _ from 'lodash';
+import { Client } from 'pg';
+
 import knexConfig = require('../../knexfile');
-
 import config from '../../src/util/config';
-import db from '../../src/util/db';
 
-const knex = Knex(knexConfig);
-
-async function rollbackAll() {
+async function rollbackAll(knex) {
   const currentVersion = await knex.migrate.currentVersion();
   if (currentVersion !== 'none') {
     await knex.migrate.rollback();
-    rollbackAll();
+    await rollbackAll(knex);
   }
 }
 
-async function reset() {
-  await rollbackAll();
+async function reset(knex) {
+  await rollbackAll(knex);
   await knex.migrate.latest();
 }
 
-async function close() {
+async function close(knex) {
   await knex.destroy();
+  const db = require('../../src/util/db').default;
   return db.end();
 }
 
-export {
-  reset,
-  close,
+async function remove() {
+  const { database, databasePath } = getDatabaseNameAndPath();
+
+  const knexx = Knex(_.assign({}, knexConfig, { connection: `${databasePath}/test` }));
+
+  // Remove generated test database
+  await knexx.schema.raw('DROP DATABASE ??', database);
+  await knexx.destroy();
+}
+
+async function createDatabase() {
+  const { database, databasePath } = getDatabaseNameAndPath();
+
+  const knexx = Knex(_.assign({}, knexConfig, { connection: `${databasePath}/test` }));
+
+  // Create test database with unique name
+  await knexx.schema.raw('CREATE DATABASE ??', database);
+  await knexx.destroy();
+}
+
+async function create() {
+  await createDatabase();
+  const knex = Knex(knexConfig);
+  return knex;
+}
+
+function getDatabaseNameAndPath() {
+  const index = config.DATABASE_URL.lastIndexOf('/');
+  const databasePath = config.DATABASE_URL.substring(0, index);
+  const database = config.DATABASE_URL.substring(index + 1);
+
+  return {
+    databasePath,
+    database,
+  };
+}
+
+let knexConnection;
+
+export default {
+  reset: async () => {
+    // create test database with unique name on the first run
+    knexConnection = knexConnection ? knexConnection : (await create());
+    return reset(knexConnection);
+  },
+  close: async () => {
+    return close(knexConnection);
+  },
+  removeTestDatabae: async () => {
+    return remove();
+  },
 };
