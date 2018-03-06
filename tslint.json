@@ -12,7 +12,8 @@
       "single",
       "avoid-escape",
       "avoid-template"
-    ]
+    ],
+    "interface-name": [true, "never-prefix"]
   },
   "rulesDirectory": []
 }
