@@ -30,22 +30,22 @@ async function remove() {
   const { database, databasePath } = getDatabaseNameAndPath();
 
   // Connect to existing database
-  const knexx = Knex(_.assign({}, knexConfig, { connection: `${databasePath}/test` }));
+  const knex = Knex(_.assign({}, knexConfig, { connection: `${databasePath}/test` }));
 
   // Remove generated test database
-  await knexx.raw('DROP DATABASE ??', database);
-  await knexx.destroy();
+  await knex.raw('DROP DATABASE ??', database);
+  await knex.destroy();
 }
 
 async function createDatabase() {
   const { database, databasePath } = getDatabaseNameAndPath();
 
   // Connect to existing database
-  const knexx = Knex(_.assign({}, knexConfig, { connection: `${databasePath}/test` }));
+  const knex = Knex(_.assign({}, knexConfig, { connection: `${databasePath}/test` }));
 
   // Create test database with unique name
-  await knexx.raw('CREATE DATABASE ??', database);
-  await knexx.destroy();
+  await knex.raw('CREATE DATABASE ??', database);
+  await knex.destroy();
 }
 
 async function create() {
