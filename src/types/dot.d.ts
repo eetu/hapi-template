@@ -9,3 +9,7 @@ interface DotRow {
   created_at: string,
   updated_at: string,
 }
+
+interface DotRequest extends Request {
+  payload: Dot;
+}
