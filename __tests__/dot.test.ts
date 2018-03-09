@@ -10,7 +10,7 @@ afterAll(async () => {
   // close database connection(s) to allow test to end gracefully
   await dbUtils.close();
   // remove generated test database
-  await dbUtils.removeTestDatabae();
+  await dbUtils.removeTestDatabase();
 });
 
 test('POST', async () => {

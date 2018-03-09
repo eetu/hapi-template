@@ -77,7 +77,7 @@ export default {
   close: async () => {
     return close(knexConnection);
   },
-  removeTestDatabae: async () => {
+  removeTestDatabase: async () => {
     return remove();
   },
 };
