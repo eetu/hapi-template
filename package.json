@@ -6,14 +6,13 @@
   "main": "index.ts",
   "scripts": {
     "start": "node dist/index.js",
-    "start-dev": "env-cmd .env nodemon -L --watch dist/src dist/index.js",
+    "start:dev": "env-cmd .env nodemon -L --watch dist/src dist/index.js",
     "migrate-db": "env-cmd .env knex migrate:latest",
-    "build": "npm run build-ts",
+    "build": "tsc",
+    "build:dev": "tsc -w",
     "test": "env-cmd .env.test jest",
-    "watch-test": "env-cmd .env.test jest --watch",
+    "test:dev": "env-cmd .env.test jest --watch",
     "tslint": "tslint -c tslint.json -p tsconfig.json",
-    "build-ts": "tsc",
-    "watch-ts": "tsc -w",
     "heroku-postbuild": "./tools/build.sh"
   },
   "jest": {
